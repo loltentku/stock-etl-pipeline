@@ -2,7 +2,7 @@
 
 A little ETL pipeline I built to track the stocks in my own portfolio (SNDK, ASTS, JNJ, GOOGL, VRT, NVDA, RKLB) — and to teach myself how a real data pipeline actually gets put together, end to end.
 
-I'm a recent CS grad moving from data analytics into data engineering, and I wanted a project that wasn't just "load a CSV into pandas and make a chart." This one pulls live stock prices every day, pushes them through a proper database, transforms them with dbt, gets orchestrated by Airflow, and lands on a dashboard I actually check.
+My goal is to create a project that wasn't just "load a CSV into pandas and make a chart." This one pulls live stock prices every day, pushes them through a proper database, transforms them with dbt, gets orchestrated by Airflow, and lands on a dashboard I actually check.
 
 ---
 
