@@ -1,4 +1,4 @@
-#Stock ETL Pipeline
+# Stock ETL Pipeline
 
 A little ETL pipeline I built to track the stocks in my own portfolio (SNDK, ASTS, JNJ, GOOGL, VRT, NVDA, RKLB) — and to teach myself how a real data pipeline actually gets put together, end to end.
 
