@@ -1,0 +1,44 @@
+[2026-07-08T10:53:21.064+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-08T10:53:21.087+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_etl_pipeline.load_task manual__2026-07-08T10:53:18.045179+00:00 [queued]>
+[2026-07-08T10:53:21.093+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_etl_pipeline.load_task manual__2026-07-08T10:53:18.045179+00:00 [queued]>
+[2026-07-08T10:53:21.094+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-07-08T10:53:21.102+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_task> on 2026-07-08 10:53:18.045179+00:00
+[2026-07-08T10:53:21.109+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=331) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-08T10:53:21.109+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'stock_etl_pipeline', 'load_task', 'manual__2026-07-08T10:53:18.045179+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/stock_pipeline_dag.py', '--cfg-path', '/tmp/tmpzlcuhye0']
+[2026-07-08T10:53:21.111+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask load_task
+[2026-07-08T10:53:21.110+0000] {standard_task_runner.py:63} INFO - Started process 333 to run task
+[2026-07-08T10:53:21.154+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_etl_pipeline.load_task manual__2026-07-08T10:53:18.045179+00:00 [running]> on host 4bb633874362
+[2026-07-08T10:53:21.217+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='tent' AIRFLOW_CTX_DAG_ID='stock_etl_pipeline' AIRFLOW_CTX_TASK_ID='load_task' AIRFLOW_CTX_EXECUTION_DATE='2026-07-08T10:53:18.045179+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-08T10:53:18.045179+00:00'
+[2026-07-08T10:53:21.219+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-08T10:53:21.237+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/stock_pipeline_dag.py:30 FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+[2026-07-08T10:53:21.255+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-08T10:53:21.256+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/stock_pipeline_dag.py", line 31, in load_task_fn
+    load_stock_data(df)
+  File "/opt/airflow/scripts/load_stock_data.py", line 47, in load_stock_data
+    create_table_if_not_exists(engine)
+  File "/opt/airflow/scripts/load_stock_data.py", line 37, in create_table_if_not_exists
+    conn.commit()
+    ^^^^^^^^^^^
+AttributeError: 'Connection' object has no attribute 'commit'
+[2026-07-08T10:53:21.267+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=stock_etl_pipeline, task_id=load_task, run_id=manual__2026-07-08T10:53:18.045179+00:00, execution_date=20260708T105318, start_date=20260708T105321, end_date=20260708T105321
+[2026-07-08T10:53:21.275+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 16 for task load_task ('Connection' object has no attribute 'commit'; 333)
+[2026-07-08T10:53:21.285+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-08T10:53:21.303+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-08T10:53:21.305+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

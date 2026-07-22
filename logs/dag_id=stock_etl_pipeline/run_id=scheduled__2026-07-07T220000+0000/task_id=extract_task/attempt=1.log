@@ -1,0 +1,25 @@
+[2026-07-14T08:22:47.589+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-14T08:22:47.612+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_etl_pipeline.extract_task scheduled__2026-07-07T22:00:00+00:00 [queued]>
+[2026-07-14T08:22:47.620+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_etl_pipeline.extract_task scheduled__2026-07-07T22:00:00+00:00 [queued]>
+[2026-07-14T08:22:47.621+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-07-14T08:22:47.632+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extract_task> on 2026-07-07 22:00:00+00:00
+[2026-07-14T08:22:47.640+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=188) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-14T08:22:47.640+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'stock_etl_pipeline', 'extract_task', 'scheduled__2026-07-07T22:00:00+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/stock_pipeline_dag.py', '--cfg-path', '/tmp/tmpyd5imwzg']
+[2026-07-14T08:22:47.642+0000] {standard_task_runner.py:91} INFO - Job 26: Subtask extract_task
+[2026-07-14T08:22:47.642+0000] {standard_task_runner.py:63} INFO - Started process 195 to run task
+[2026-07-14T08:22:47.686+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_etl_pipeline.extract_task scheduled__2026-07-07T22:00:00+00:00 [running]> on host 4bb633874362
+[2026-07-14T08:22:47.760+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='tent' AIRFLOW_CTX_DAG_ID='stock_etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_task' AIRFLOW_CTX_EXECUTION_DATE='2026-07-07T22:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-07T22:00:00+00:00'
+[2026-07-14T08:22:47.762+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-14T08:22:47.776+0000] {extract_stock_data.py:16} INFO - Fetching data for SNDK...
+[2026-07-14T08:22:48.262+0000] {extract_stock_data.py:16} INFO - Fetching data for ASTS...
+[2026-07-14T08:22:48.317+0000] {extract_stock_data.py:16} INFO - Fetching data for JNJ...
+[2026-07-14T08:22:48.500+0000] {extract_stock_data.py:16} INFO - Fetching data for GOOGL...
+[2026-07-14T08:22:48.553+0000] {extract_stock_data.py:16} INFO - Fetching data for VRT...
+[2026-07-14T08:22:48.619+0000] {extract_stock_data.py:16} INFO - Fetching data for NVDA...
+[2026-07-14T08:22:48.699+0000] {extract_stock_data.py:16} INFO - Fetching data for RKLB...
+[2026-07-14T08:22:48.778+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-07-14T08:22:48.779+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-14T08:22:48.788+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=stock_etl_pipeline, task_id=extract_task, run_id=scheduled__2026-07-07T22:00:00+00:00, execution_date=20260707T220000, start_date=20260714T082247, end_date=20260714T082248
+[2026-07-14T08:22:48.821+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-07-14T08:22:48.840+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-14T08:22:48.842+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

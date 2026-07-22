@@ -1,0 +1,41 @@
+[2026-07-14T08:33:08.453+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-14T08:33:08.482+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_etl_pipeline.dbt_run_task scheduled__2026-07-07T22:00:00+00:00 [queued]>
+[2026-07-14T08:33:08.489+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_etl_pipeline.dbt_run_task scheduled__2026-07-07T22:00:00+00:00 [queued]>
+[2026-07-14T08:33:08.490+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 3
+[2026-07-14T08:33:08.500+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_task> on 2026-07-07 22:00:00+00:00
+[2026-07-14T08:33:08.507+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=522) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-14T08:33:08.508+0000] {standard_task_runner.py:63} INFO - Started process 524 to run task
+[2026-07-14T08:33:08.507+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'stock_etl_pipeline', 'dbt_run_task', 'scheduled__2026-07-07T22:00:00+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/stock_pipeline_dag.py', '--cfg-path', '/tmp/tmpmha9t6fo']
+[2026-07-14T08:33:08.509+0000] {standard_task_runner.py:91} INFO - Job 33: Subtask dbt_run_task
+[2026-07-14T08:33:08.552+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_etl_pipeline.dbt_run_task scheduled__2026-07-07T22:00:00+00:00 [running]> on host 4bb633874362
+[2026-07-14T08:33:08.613+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='tent' AIRFLOW_CTX_DAG_ID='stock_etl_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_task' AIRFLOW_CTX_EXECUTION_DATE='2026-07-07T22:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-07T22:00:00+00:00'
+[2026-07-14T08:33:08.614+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-14T08:33:08.622+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-14T08:33:08.623+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt_project && dbt run --profiles-dir /opt/***/dbt_profiles']
+[2026-07-14T08:33:08.634+0000] {subprocess.py:86} INFO - Output:
+[2026-07-14T08:33:10.634+0000] {subprocess.py:93} INFO - [0m08:33:10  Running with dbt=1.12.0-rc1
+[2026-07-14T08:33:10.998+0000] {subprocess.py:93} INFO - [0m08:33:10  Registered adapter: postgres=1.10.2
+[2026-07-14T08:33:11.486+0000] {subprocess.py:93} INFO - [0m08:33:11  Found 4 models, 6 data tests, 1 source, 475 macros
+[2026-07-14T08:33:11.490+0000] {subprocess.py:93} INFO - [0m08:33:11
+[2026-07-14T08:33:11.491+0000] {subprocess.py:93} INFO - [0m08:33:11  Concurrency: 4 threads (target='dev')
+[2026-07-14T08:33:11.492+0000] {subprocess.py:93} INFO - [0m08:33:11
+[2026-07-14T08:33:11.599+0000] {subprocess.py:93} INFO - [0m08:33:11  1 of 4 START sql table model public.my_first_dbt_model ......................... [RUN]
+[2026-07-14T08:33:11.600+0000] {subprocess.py:93} INFO - [0m08:33:11  2 of 4 START sql view model public.stg_stock_prices ............................ [RUN]
+[2026-07-14T08:33:11.833+0000] {subprocess.py:93} INFO - [0m08:33:11  2 of 4 OK created sql view model public.stg_stock_prices ....................... [[32mCREATE VIEW[0m in 0.23s]
+[2026-07-14T08:33:11.835+0000] {subprocess.py:93} INFO - [0m08:33:11  1 of 4 OK created sql table model public.my_first_dbt_model .................... [[32mSELECT 2[0m in 0.23s]
+[2026-07-14T08:33:11.840+0000] {subprocess.py:93} INFO - [0m08:33:11  3 of 4 START sql view model public.mart_stock_indicators ....................... [RUN]
+[2026-07-14T08:33:11.842+0000] {subprocess.py:93} INFO - [0m08:33:11  4 of 4 START sql view model public.my_second_dbt_model ......................... [RUN]
+[2026-07-14T08:33:11.917+0000] {subprocess.py:93} INFO - [0m08:33:11  4 of 4 OK created sql view model public.my_second_dbt_model .................... [[32mCREATE VIEW[0m in 0.07s]
+[2026-07-14T08:33:11.920+0000] {subprocess.py:93} INFO - [0m08:33:11  3 of 4 OK created sql view model public.mart_stock_indicators .................. [[32mCREATE VIEW[0m in 0.08s]
+[2026-07-14T08:33:11.938+0000] {subprocess.py:93} INFO - [0m08:33:11
+[2026-07-14T08:33:11.939+0000] {subprocess.py:93} INFO - [0m08:33:11  Finished running 1 table model, 3 view models in 0 hours 0 minutes and 0.44 seconds (0.44s).
+[2026-07-14T08:33:12.028+0000] {subprocess.py:93} INFO - [0m08:33:12
+[2026-07-14T08:33:12.029+0000] {subprocess.py:93} INFO - [0m08:33:12  [32mCompleted successfully[0m
+[2026-07-14T08:33:12.030+0000] {subprocess.py:93} INFO - [0m08:33:12
+[2026-07-14T08:33:12.031+0000] {subprocess.py:93} INFO - [0m08:33:12  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=4
+[2026-07-14T08:33:13.527+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-14T08:33:13.528+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-14T08:33:13.547+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=stock_etl_pipeline, task_id=dbt_run_task, run_id=scheduled__2026-07-07T22:00:00+00:00, execution_date=20260707T220000, start_date=20260714T083308, end_date=20260714T083313
+[2026-07-14T08:33:13.562+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-07-14T08:33:13.573+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-14T08:33:13.575+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

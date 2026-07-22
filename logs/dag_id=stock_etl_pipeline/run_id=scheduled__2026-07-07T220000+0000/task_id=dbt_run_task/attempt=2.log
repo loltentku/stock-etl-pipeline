@@ -1,0 +1,68 @@
+[2026-07-14T08:28:01.013+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-14T08:28:01.042+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stock_etl_pipeline.dbt_run_task scheduled__2026-07-07T22:00:00+00:00 [queued]>
+[2026-07-14T08:28:01.052+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stock_etl_pipeline.dbt_run_task scheduled__2026-07-07T22:00:00+00:00 [queued]>
+[2026-07-14T08:28:01.053+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 3
+[2026-07-14T08:28:01.065+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_task> on 2026-07-07 22:00:00+00:00
+[2026-07-14T08:28:01.075+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=369) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-14T08:28:01.075+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'stock_etl_pipeline', 'dbt_run_task', 'scheduled__2026-07-07T22:00:00+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/stock_pipeline_dag.py', '--cfg-path', '/tmp/tmp1yuxswc9']
+[2026-07-14T08:28:01.077+0000] {standard_task_runner.py:63} INFO - Started process 373 to run task
+[2026-07-14T08:28:01.077+0000] {standard_task_runner.py:91} INFO - Job 31: Subtask dbt_run_task
+[2026-07-14T08:28:01.124+0000] {task_command.py:426} INFO - Running <TaskInstance: stock_etl_pipeline.dbt_run_task scheduled__2026-07-07T22:00:00+00:00 [running]> on host 4bb633874362
+[2026-07-14T08:28:01.192+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='tent' AIRFLOW_CTX_DAG_ID='stock_etl_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run_task' AIRFLOW_CTX_EXECUTION_DATE='2026-07-07T22:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-07T22:00:00+00:00'
+[2026-07-14T08:28:01.194+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-14T08:28:01.203+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-14T08:28:01.205+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt_project && dbt run --profiles-dir /opt/***/dbt_profiles']
+[2026-07-14T08:28:01.215+0000] {subprocess.py:86} INFO - Output:
+[2026-07-14T08:28:03.631+0000] {subprocess.py:93} INFO - [0m08:28:03  Running with dbt=1.12.0-rc1
+[2026-07-14T08:28:04.136+0000] {subprocess.py:93} INFO - [0m08:28:04  Registered adapter: postgres=1.10.2
+[2026-07-14T08:28:04.732+0000] {subprocess.py:93} INFO - [0m08:28:04  Found 4 models, 6 data tests, 1 source, 475 macros
+[2026-07-14T08:28:04.736+0000] {subprocess.py:93} INFO - [0m08:28:04
+[2026-07-14T08:28:04.737+0000] {subprocess.py:93} INFO - [0m08:28:04  Concurrency: 4 threads (target='dev')
+[2026-07-14T08:28:04.738+0000] {subprocess.py:93} INFO - [0m08:28:04
+[2026-07-14T08:28:04.863+0000] {subprocess.py:93} INFO - [0m08:28:04  1 of 4 START sql table model public.my_first_dbt_model ......................... [RUN]
+[2026-07-14T08:28:04.864+0000] {subprocess.py:93} INFO - [0m08:28:04  2 of 4 START sql view model public.stg_stock_prices ............................ [RUN]
+[2026-07-14T08:28:05.133+0000] {subprocess.py:93} INFO - [0m08:28:05  1 of 4 ERROR creating sql table model public.my_first_dbt_model ................ [[31mERROR[0m in 0.26s]
+[2026-07-14T08:28:05.134+0000] {subprocess.py:93} INFO - [0m08:28:05  2 of 4 ERROR creating sql view model public.stg_stock_prices ................... [[31mERROR[0m in 0.26s]
+[2026-07-14T08:28:05.143+0000] {subprocess.py:93} INFO - [0m08:28:05  3 of 4 SKIP relation public.my_second_dbt_model ................................ [[33mSKIP[0m]
+[2026-07-14T08:28:05.144+0000] {subprocess.py:93} INFO - [0m08:28:05  4 of 4 SKIP relation public.mart_stock_indicators .............................. [[33mSKIP[0m]
+[2026-07-14T08:28:05.165+0000] {subprocess.py:93} INFO - [0m08:28:05
+[2026-07-14T08:28:05.166+0000] {subprocess.py:93} INFO - [0m08:28:05  Finished running 1 table model, 3 view models in 0 hours 0 minutes and 0.43 seconds (0.43s).
+[2026-07-14T08:28:05.337+0000] {subprocess.py:93} INFO - [0m08:28:05
+[2026-07-14T08:28:05.338+0000] {subprocess.py:93} INFO - [0m08:28:05  [31mCompleted with 2 errors, 0 partial successes, and 0 warnings:[0m
+[2026-07-14T08:28:05.339+0000] {subprocess.py:93} INFO - [0m08:28:05
+[2026-07-14T08:28:05.341+0000] {subprocess.py:93} INFO - [0m08:28:05  [[31mERROR[0m]: in model my_first_dbt_model (models/example/my_first_dbt_model.sql)
+[2026-07-14T08:28:05.342+0000] {subprocess.py:93} INFO - [0m08:28:05    Database Error in model my_first_dbt_model (models/example/my_first_dbt_model.sql)
+[2026-07-14T08:28:05.342+0000] {subprocess.py:93} INFO -   relation "my_first_dbt_model__dbt_backup" already exists
+[2026-07-14T08:28:05.343+0000] {subprocess.py:93} INFO -   compiled code at target/run/dbt_project/models/example/my_first_dbt_model.sql
+[2026-07-14T08:28:05.343+0000] {subprocess.py:93} INFO - [0m08:28:05
+[2026-07-14T08:28:05.344+0000] {subprocess.py:93} INFO - [0m08:28:05    compiled code at target/compiled/dbt_project/models/example/my_first_dbt_model.sql
+[2026-07-14T08:28:05.346+0000] {subprocess.py:93} INFO - [0m08:28:05
+[2026-07-14T08:28:05.347+0000] {subprocess.py:93} INFO - [0m08:28:05  [[31mERROR[0m]: in model stg_stock_prices (models/staging/stg_stock_prices.sql)
+[2026-07-14T08:28:05.348+0000] {subprocess.py:93} INFO - [0m08:28:05    Database Error in model stg_stock_prices (models/staging/stg_stock_prices.sql)
+[2026-07-14T08:28:05.349+0000] {subprocess.py:93} INFO -   relation "stg_stock_prices__dbt_backup" already exists
+[2026-07-14T08:28:05.349+0000] {subprocess.py:93} INFO -   compiled code at target/run/dbt_project/models/staging/stg_stock_prices.sql
+[2026-07-14T08:28:05.349+0000] {subprocess.py:93} INFO - [0m08:28:05
+[2026-07-14T08:28:05.350+0000] {subprocess.py:93} INFO - [0m08:28:05    compiled code at target/compiled/dbt_project/models/staging/stg_stock_prices.sql
+[2026-07-14T08:28:05.351+0000] {subprocess.py:93} INFO - [0m08:28:05
+[2026-07-14T08:28:05.352+0000] {subprocess.py:93} INFO - [0m08:28:05  Done. PASS=0 WARN=0 ERROR=2 SKIP=2 NO-OP=0 REUSED=0 TOTAL=4
+[2026-07-14T08:28:07.017+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-07-14T08:28:07.018+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-14T08:28:07.029+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-07-14T08:28:07.034+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=stock_etl_pipeline, task_id=dbt_run_task, run_id=scheduled__2026-07-07T22:00:00+00:00, execution_date=20260707T220000, start_date=20260714T082801, end_date=20260714T082807
+[2026-07-14T08:28:07.044+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 31 for task dbt_run_task (Bash command failed. The command returned a non-zero exit code 1.; 373)
+[2026-07-14T08:28:07.064+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-14T08:28:07.078+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-14T08:28:07.082+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

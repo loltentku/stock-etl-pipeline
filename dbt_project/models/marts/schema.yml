@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: mart_stock_indicators
+    description: "Stock prices with calculated SMA and RSI indicators"
+    columns:
+      - name: ticker
+        tests:
+          - not_null
+      - name: date
+        tests:
+          - not_null
+      - name: close_price
+        tests:
+          - not_null
+      - name: rsi_14
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+              inclusive: true
