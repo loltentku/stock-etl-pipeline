@@ -1,5 +1,18 @@
-
-target/
-dbt_packages/
+# Airflow
 logs/
+plugins/
+*.pyc
+__pycache__/
+
+# dbt
+dbt_project/target/
+dbt_project/dbt_packages/
+dbt_project/logs/
+
+# Environment
 .env
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
