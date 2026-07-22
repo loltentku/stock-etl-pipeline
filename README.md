@@ -57,7 +57,7 @@ flowchart LR
 | Extraction | Python + yfinance | Free, reliable enough for daily OHLCV data |
 | Database | PostgreSQL | Solid, well-documented, plays nicely with dbt |
 | Transformation | dbt-core | SQL-first transformations with built-in testing and documentation |
-| Visualization | Streamlit + Plotly | Fast to build, I already knew it from a previous project |
+| Visualization | Streamlit + Plotly | Fast to build|
 | Containers | Docker Compose | Makes the whole thing reproducible on any machine |
 
 ---
