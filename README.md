@@ -133,4 +133,4 @@ A few decisions here weren't obvious to me at first — I picked them up while b
 
 ---
 
-Built by [loltentku](https://github.com/loltentku) — feel free to poke around, fork it, or point out something I got wrong.
+ by [loltentku](https://github.com/loltentku) 
